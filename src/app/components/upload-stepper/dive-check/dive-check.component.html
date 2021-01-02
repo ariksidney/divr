@@ -1,0 +1,9 @@
+<mat-list>
+  <mat-list-item *ngFor="let dive of dives; let i = index">
+    <p matLine>Date: {{dive.details.startTime | date:'MMM d, y, hh:mm a'}}</p>
+    <p matLine>Duration: {{toDuration(dive.details.duration)}}</p>
+    <p matLine>Average depth: {{dive.details.avgDepth}}</p>
+
+    <button mat-button (click)="delete(i)"><mat-icon>delete</mat-icon></button>
+  </mat-list-item>
+</mat-list>

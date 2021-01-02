@@ -1,0 +1,30 @@
+.form {
+    display: grid;
+    gap: 5px 15px;
+    grid-template-areas:
+        ". . ."
+        ". buttons .";
+
+    .buttons {
+        grid-area: buttons;
+        text-align: center;
+
+        button {
+            margin: 0 10px 0 10px;
+        }
+    }
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .form {
+        grid-template-areas:
+            "."
+            "."
+            "."
+            "buttons"
+    }
+}

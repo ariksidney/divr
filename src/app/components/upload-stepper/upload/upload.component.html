@@ -1,0 +1,14 @@
+<h2 class="mat-h2">Drag UDDF File to the box below</h2>
+<div *ngIf="!isProcessing">
+  <div class="box">
+    <div class="dropzone" appFileDrop (filesDropped)="handleDrop($event)" (filesHovered)="dropzoneState($event)"
+      [ngClass]="{'active': dropzoneActive}">
+      <div class="upload">
+        <mat-icon aria-hidden="false" aria-label="cloud_upload">cloud_upload</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isProcessing">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>

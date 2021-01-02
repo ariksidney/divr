@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-nav-list class="grid" role="list">
+    <mat-list-item *ngFor="let item of diveKeys; let i = index" (click)="toCourse($event, item)" role="listitem">
+      <div class="grid__container">
+          <div class="grid__content id">{{offset + i}}</div>
+          <div class="grid__content timestamp">{{dives[i]['startTime'].toDate() | date:'MMM d, y, hh:mm a'}}</div>
+          <div mat-line class="grid__content location" *ngIf="dives[i].diveSite">
+            {{ getLocation(dives[i].diveSite) }}
+          </div>
+          <ng-template #noCountry>-</ng-template>
+      </div>
+    </mat-list-item>
+  </mat-nav-list>
+</mat-card>

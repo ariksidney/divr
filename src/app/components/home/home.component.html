@@ -1,0 +1,26 @@
+<div *ngIf="loaded; else notLoaded">
+  <div *ngIf="diveKeys.length; else noDives">
+    <app-filter (filter)="onFilter($event)"></app-filter>
+    <div class="table-container">
+      <app-dive-list [dives]="dives" [diveKeys]="diveKeys" [offset]="offset"></app-dive-list>
+      <div *ngIf="showPagination">
+        <mat-paginator #paginator [length]="noOfDives" [pageIndex]="0" [pageSize]="pageSize"
+          (page)="pageChange($event)">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #notLoaded>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+<ng-template #noDives>
+  <div class="bubbles">
+    <img src="../../../assets/bubbles.png">
+    <div class="mat-subheading-2">
+      No dives logged yet.
+    </div>
+  </div>
+</ng-template>

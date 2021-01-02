@@ -1,0 +1,12 @@
+<ng-container *ngIf="latitude && longitude; then showMap; else showError">
+</ng-container>
+
+<ng-template #showMap>
+  <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="true" [zoom]="10" >
+    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+  </agm-map>
+</ng-template>
+
+<ng-template #showError>
+  No coordinates found
+</ng-template>

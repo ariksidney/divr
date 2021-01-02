@@ -1,0 +1,10 @@
+<mat-grid-list cols="2" rowHeight="90px">
+    <mat-grid-tile *ngFor="let detail of details" [colspan]="1" [rowspan]="1">
+        <mat-card class="feature-card">
+            <div class="feature-card__title">{{ detail.title }}</div>
+            <mat-card-content>
+                {{ detail.value }}
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>

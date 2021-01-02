@@ -1,0 +1,61 @@
+<div *ngIf="loaded; else notLoaded">
+  <div class="grid">
+    <div class="title">
+      <mat-card class="title-card">
+        <mat-card-content class="dive-title">
+          <div class="dive-title__text">
+            {{ divesite.name }} ({{ divesite.location }}, {{ divesite.country }})
+          </div>
+          <div class="dive-title__button">
+            <button mat-raised-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="properties">
+      <mat-card class="properties-card">
+        <mat-card-header>
+          <mat-card-title>Properties</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <app-dive-details [details]="details"></app-dive-details>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="map">
+      <mat-card class="map-card">
+        <mat-card-header>
+          <mat-card-title>Map</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div id="map">
+            <div *ngIf="divesite && divesite.lat && divesite.long; else noDivesite">
+              <app-map [latitude]="divesite.lat" [longitude]="divesite.long"></app-map>
+            </div>
+            <ng-template #noDivesite>
+              <p>No divesite coordinates could be found</p>
+            </ng-template>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="chart">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Dive</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div *ngIf="data.length != 0">
+            <app-dive-chart [data]="data"></app-dive-chart>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #notLoaded>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <rect id="Artboard1" x="0" y="0" width="512" height="512" style="fill:none;"/>
+    <g id="Artboard11" serif:id="Artboard1">
+        <g id="reference">
+        </g>
+        <g transform="matrix(3.63687,-0.027149,0.027149,3.63687,-418.553,-95.1532)">
+            <g id="icon">
+                <g>
+                    <g transform="matrix(1.58933,0,0,1.58933,-92.0029,-474.321)">
+                        <path d="M174.129,328.769C160.573,328.769 148.558,337.498 144.369,350.39" style="fill-opacity:0;stroke:white;stroke-width:5.36px;"/>
+                    </g>
+                    <g transform="matrix(2.09148,0,0,2.09148,-179.441,-655.123)">
+                        <circle cx="174.129" cy="360.06" r="31.291" style="fill-opacity:0;stroke:white;stroke-width:4.08px;"/>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

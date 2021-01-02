@@ -1,0 +1,22 @@
+<div class="edit-dive-container">
+  <form [formGroup]="diveForm" (ngSubmit)="onDiveChange()">
+    <div class="edit-dive">
+      <mat-form-field>
+        <input matInput type="text" placeholder="Country" formControlName="country">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Location" formControlName="location">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Dive Site" formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Lat" formControlName="lat">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="number" placeholder="Long" formControlName="long">
+      </mat-form-field>
+      <button mat-raised-button type="submit" color="primary" [disabled]="!diveForm.valid">Save</button>
+    </div>
+  </form>
+</div>

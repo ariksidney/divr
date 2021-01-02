@@ -1,0 +1,25 @@
+<div *ngIf="isVerified; else notVerified">
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Upload dives</ng-template>
+      <app-upload></app-upload>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Verify</ng-template>
+      <app-dive-check></app-dive-check>
+      <button mat-button matStepperPrevious (click)="deleteParsedDives()">Back</button>
+      <button mat-button matStepperNext (click)="onPersist()">Save</button>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div *ngIf="uploadMsg == ''">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      {{uploadMsg}}
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>
+
+<ng-template #notVerified>
+  Your email address has to be verified before you can upload your dives.
+</ng-template>

@@ -1,0 +1,19 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+.navbar {
+  background-color: unset;
+}
+
+.hr {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(58,74,140,1) 0%, rgba(50,89,244,1) 40%, rgba(26,110,194,1) 100%);
+}
+
+.profile-picture {
+  display: block;
+  margin: auto;
+  height: 24px;
+  width: 24px;
+}

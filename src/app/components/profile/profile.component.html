@@ -1,0 +1,31 @@
+<div class="grid">
+  <mat-card>
+    <mat-card-content>
+      <div class="profile-container">
+        <form [formGroup]="profileForm" (ngSubmit)="onProfileUpdate()">
+          <div class="profile">
+            <div *ngIf="user.emailVerified; else notVerified">
+              <span class="aligned-with-icon">Verified</span>
+              <mat-icon inline=true>check_circle</mat-icon>
+            </div>
+            <ng-template #notVerified>
+              <span class="aligned-with-icon">Not verified</span>
+              <mat-icon inline=true>highlight_off</mat-icon>
+            </ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Name" formControlName="name">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!profileForm.valid"
+              class="update-profile-button">Update Profile</button>
+            <button mat-raised-button (click)="openChangePasswordSheet()" type="button"
+              class="change-password-button">Change Password</button>
+            <div *ngIf="!isVerified()">
+              <button mat-raised-button (click)="sendVerificationMail()" type="button"
+                class="verify-button">Verify</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

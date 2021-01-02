@@ -1,0 +1,267 @@
+/**
+* Generated theme by Material Theme Generator
+* https://material-theme-generator.travetto.io
+*/
+
+@import '~@angular/material/theming';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+$divr-typography: mat-typography-config(
+    $font-family:   'Poppins',
+    $display-4:     mat-typography-level(112px, 112px, 200),
+    $display-3:     mat-typography-level(56px, 56px, 400),
+    $display-2:     mat-typography-level(45px, 48px, 400),
+    $display-1:     mat-typography-level(34px, 40px, 400),
+    $headline:      mat-typography-level(24px, 32px, 400),
+    $title:         mat-typography-level(20px, 32px, 500),
+    $subheading-2:  mat-typography-level(16px, 28px, 400),
+    $subheading-1:  mat-typography-level(15px, 24px, 400),
+    $body-2:        mat-typography-level(14px, 24px, 500),
+    $body-1:        mat-typography-level(14px, 20px, 400),
+    $caption:       mat-typography-level(12px, 20px, 400),
+    $button:        mat-typography-level(14px, 14px, 500),
+    $input:         mat-typography-level(inherit, 1.125, 400)
+);
+
+@include mat-base-typography($divr-typography);
+
+// Override typography for a specific Angular Material components.
+@include mat-checkbox-typography($divr-typography);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($divr-typography);
+
+@include mat-core($divr-typography);
+
+  $md-divr-primary: (
+    50 : #e4f0fe,
+    100 : #bdd8fc,
+    200 : #91bffb,
+    300 : #64a5f9,
+    400 : #4391f7,
+    500 : #227ef6,
+    600 : #1e76f5,
+    700 : #196bf3,
+    800 : #1461f2,
+    900 : #0c4eef,
+    A100 : #ffffff,
+    A200 : #e6ecff,
+    A400 : #b3c6ff,
+    A700 : #9ab3ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-divr-accent: (
+    50 : #e0faf6,
+    100 : #b3f3e9,
+    200 : #80ebda,
+    300 : #4de2cb,
+    400 : #26dcbf,
+    500 : #00d6b4,
+    600 : #00d1ad,
+    700 : #00cca4,
+    800 : #00c69c,
+    900 : #00bc8c,
+    A100 : #e5fff7,
+    A200 : #b2ffe9,
+    A400 : #7fffda,
+    A700 : #65ffd2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-divr-warn: (
+    50 : #ffecf2,
+    100 : #fecedf,
+    200 : #feaeca,
+    300 : #fe8eb4,
+    400 : #fd75a4,
+    500 : #fd5d94,
+    600 : #fd558c,
+    700 : #fc4b81,
+    800 : #fc4177,
+    900 : #fc3065,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffd8e1,
+    A700 : #ffbece,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-divr-background: (
+    50 : #e4e4e6,
+    100 : #bcbcc0,
+    200 : #8f8f97,
+    300 : #62626d,
+    400 : #40404d,
+    500 : #1e1e2e,
+    600 : #1a1a29,
+    700 : #161623,
+    800 : #12121d,
+    900 : #0a0a12,
+    A100 : #5656ff,
+    A200 : #2323ff,
+    A400 : #0000ef,
+    A700 : #0000d5,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-divr-card: (
+    50 : #e5e5e8,
+    100 : #bebfc5,
+    200 : #93949e,
+    300 : #686977,
+    400 : #47495a,
+    500 : #27293d,
+    600 : #232437,
+    700 : #1d1f2f,
+    800 : #171927,
+    900 : #0e0f1a,
+    A100 : #5d6fff,
+    A200 : #2a41ff,
+    A400 : #001bf6,
+    A700 : #0018dc,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$my-dark-theme-background: (
+  status-bar: #1e1e2e,
+  app-bar:    map_get($mat-blue, 900),
+  background: #1e1e2e,
+  hover:      rgba(white, 0.04), 
+  card:       map_get($md-divr-card, 500),
+  dialog:     map_get($md-divr-card, 400),
+  disabled-button: $white-12-opacity,
+  raised-button: map-get($mat-grey, 800),
+  focused-button: $white-6-opacity,
+  selected-button: map_get($mat-grey, 900),
+  selected-disabled-button: map_get($mat-grey, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map_get($mat-grey, 700),
+  disabled-list-option: black,
+);
+
+$my-dark-theme-foreground: (
+  base:             #f6f9fc,
+  divider:           $white-12-opacity,
+  dividers:          $white-12-opacity,
+  disabled:          rgba(white, 0.3),
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     rgba(white, 0.3),
+  hint-text:         rgba(white, 0.3),
+  secondary-text:    rgba(white, 0.7),
+  icon:              white,
+  icons:             white,
+  text:              #f6f9fc,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+@function divr-theme($primary, $accent, $warn: mat-palette($mat-red)) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+    is-dark: true,
+    foreground: $my-dark-theme-foreground,
+    background: $my-dark-theme-background,
+  );
+}
+
+
+$divr-app-primary: mat-palette($md-divr-primary);
+$divr-app-accent: mat-palette($md-divr-accent);
+$divr-app-warn: mat-palette($md-divr-warn);
+
+
+$divr-app-theme: divr-theme(
+    $divr-app-primary,
+    $divr-app-accent,
+    $divr-app-warn,  
+  );
+
+@include angular-material-theme($divr-app-theme);

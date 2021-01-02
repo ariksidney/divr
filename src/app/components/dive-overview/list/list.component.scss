@@ -1,0 +1,36 @@
+.id {
+  grid-area: id;
+}
+
+.timestamp {
+  grid-area: timestamp;
+}
+
+.location {
+  grid-area: location;
+}
+
+.grid {
+  margin: 1px;
+
+  &__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 40% 50%;
+    grid-template-areas: "id timestamp location";
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .mat-list-item {
+    height: 88px !important;
+  }
+  .grid__container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-areas:
+      "id timestamp"
+      "location location";
+  }
+}

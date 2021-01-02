@@ -1,0 +1,24 @@
+<div class="hr"></div>
+<mat-toolbar *ngIf="displayNavigation()" class="navbar">
+  <mat-toolbar-row>
+    <button mat-button class="btn btn-lg btn-primary btn-block mb-1" [routerLink]="['']">
+      <mat-icon svgIcon="bubbles"></mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="Upload Dives" [routerLink]="['upload']">
+      <mat-icon>cloud_upload</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu">
+      <div *ngIf="getProfileImgUrl(); else accountIcon">
+        <img class="profile-picture" src="{{ getProfileImgUrl() }}">
+      </div>
+      <ng-template #accountIcon>
+        <mat-icon aria-hidden="false" aria-label="profile icon">account_circle</mat-icon>
+      </ng-template>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['profile']" [disabled]="!canEditProfile()">Profile</button>
+      <button mat-menu-item (click)="authService.logout()">Logout</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>

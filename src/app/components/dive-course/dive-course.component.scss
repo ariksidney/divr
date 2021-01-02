@@ -1,0 +1,56 @@
+.properties {
+  grid-area: properties;
+}
+
+.dive-title {
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 1fr;
+  align-items: center;
+  column-gap: 20px;
+
+  &__button {
+    text-align: end;
+  }
+}
+
+.title {
+  grid-area: title;
+}
+
+.chart {
+  grid-area: chart;
+}
+
+.map {
+  grid-area: map;
+}
+
+.map-card {
+  height: 300px;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-areas:
+    "title"
+    "properties"
+    "chart"
+    "map";
+}
+
+@media (min-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title title"
+      "properties map"
+      "chart chart";
+  }
+
+  .properties-card {
+    height: 300px;
+  }
+}
