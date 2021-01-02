@@ -17,6 +17,7 @@ Currently supports:
 * Waypoints
 * Temperatures
 
+
 UDDF features like buddies, dive plannings, other gases, free or technical diving etc. are not supported.
 
 **Only tested with UDDF files exported from Mares DiversDiary (Mac)**
