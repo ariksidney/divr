@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "config": "ts-node -O '{\"module\": \"commonjs\"}' ./config.index.ts",
+    "build": "npm run config && ng build --prod",
     "deploy": "firebase deploy --only hosting",
     "build:stats": "ng build --stats-json",
     "analyze": "webpack-bundle-analyzer dist/divr/stats.json",
