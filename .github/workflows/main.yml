@@ -38,4 +38,11 @@ jobs:
           args: deploy --only hosting --project divr-f8ff5
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          MAP_TOKEN: ${{ secrets.MAP_TOKEN }}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          DB_URL: ${{ secrets.DB_URL }}
+          AUTH_DOMAIN: ${{ secrets.AUTH_DOMAIN }}
+          PROJECT_ID: ${{ secrets.PROJECT_ID }}
+          STORAGE_BUCKET: ${{ secrets.STORAGE_BUCKET }}
+          MSG_SENDER_ID: ${{ secrets.PROJECT_ID }}
+          APP_ID: ${{ secrets.APP_ID }}
+          MAP_KEY: ${{ secrets.MAP_KEY }}
