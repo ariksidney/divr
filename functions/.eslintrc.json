@@ -1,7 +1,7 @@
 {
   "parserOptions": {
     // Required for certain syntax usages
-    "ecmaVersion": 2017
+    "ecmaVersion": 2020
   },
   "plugins": [
     "promise"
@@ -119,5 +119,6 @@
 
     // Warn against nested then() or catch() statements
     "promise/no-nesting": 1
+
   }
 }
