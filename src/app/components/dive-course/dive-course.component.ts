@@ -78,7 +78,8 @@ export class DiveCourseComponent implements OnInit {
 
   waterTemperature(waypoints): number[] {
     if (waypoints) {
-      const temps = waypoints.map(s => Number(s.temperature));
+      const allTemps = waypoints.filter(s => s.temperature != null);
+      const temps = allTemps.map(s => Number(s.temperature));
       const avg = temps.reduce((prev, curr) => prev + curr) / temps.length;
       const max = Math.max(...temps);
       const min = Math.min(...temps);
@@ -87,13 +88,24 @@ export class DiveCourseComponent implements OnInit {
   }
 
   toCelsius(tempInKelvin): string {
-    return (tempInKelvin - 273.15).toFixed(2);
+      return (tempInKelvin - 273.15).toFixed(2);
   }
 
   private toDuration(durationInSeconds: number): String {
     const date = new Date(null);
     date.setSeconds(durationInSeconds);
     return date.toISOString().substr(11, 8);
+  }
+
+  getTitle(): string {
+    if (this.divesite.location && this.divesite.country) {
+      return `${this.divesite.name} (${this.divesite.location}, ${this.divesite.country})`
+    } else if (this.divesite.location) {
+      return `${this.divesite.name} (${this.divesite.location})`
+    } else if (this.divesite.country) {
+      return `${this.divesite.name} (${this.divesite.country})`
+    }
+    return this.divesite.name;
   }
 
 }

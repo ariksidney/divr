@@ -4,7 +4,7 @@
       <mat-card class="title-card">
         <mat-card-content class="dive-title">
           <div class="dive-title__text">
-            {{ divesite.name }} ({{ divesite.location }}, {{ divesite.country }})
+            {{ getTitle() }}
           </div>
           <div class="dive-title__button">
             <button mat-raised-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
