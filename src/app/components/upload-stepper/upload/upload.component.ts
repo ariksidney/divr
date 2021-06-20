@@ -22,10 +22,10 @@ export class UploadComponent {
     handleDrop(fileList: FileList) {
     if (fileList.length !== 1) {
       console.error('More than one file uploaded');
-    } else if (!fileList[0].name.endsWith('.uddf')) {
-      console.error('File is not a .uddf file');
+    } else if (!fileList[0].name.endsWith('.xml')) {
+      console.error('File is not a .xml file');
     } else {
-      this.diveFileService.handleUddfFile(fileList[0]);
+      this.diveFileService.handleDiveFile(fileList[0]);
       this.isProcessing = true;
     }
   }

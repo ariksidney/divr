@@ -22,9 +22,9 @@ export class DiveFileService {
 
     }
 
-    handleUddfFile(uddfFile: File) {
+    handleDiveFile(diveFile: File) {
         const fileReader = new FileReader();
-        fileReader.readAsText(uddfFile);
+        fileReader.readAsText(diveFile);
 
         fileReader.onload = () => {
             const callable = this.functions.httpsCallable('parseUddf');

@@ -8,7 +8,7 @@ The application for my Mares dive computer looks like from the 90s and is quite 
 
 # Features
 
-Just export an [UDDF file](https://www.streit.cc/extern/uddf_v321/en/index.html) from your dive computer's application and upload it to Divr.
+Just export a XML file from [Subsurface](https://subsurface-divelog.org/)  and upload it to Divr.
 
 Currently supports:
 
@@ -18,8 +18,8 @@ Currently supports:
 * Temperatures
 
 
-UDDF features like buddies, dive plannings, other gases, free or technical diving etc. are not supported.
+Other features like buddies, dive plannings, other gases, free or technical diving etc. are not supported.
 
-**Only tested with UDDF files exported from Mares DiversDiary (Mac)**
+**Since Mares DiversDiary for Mac seems to be not available anymore, the latest version only works with Subsurface XML exports**
 
 ![Screenshot](https://user-images.githubusercontent.com/15780097/103461908-01d69900-4d22-11eb-9532-96fa1e3bd9b6.png)

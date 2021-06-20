@@ -22,11 +22,15 @@ export class ListComponent {
   constructor(private router: Router) { }
 
   getLocation(diveSite: DiveSite) {
-    if (diveSite && diveSite.country && diveSite.location && diveSite.name) {
+    if (diveSite?.country && diveSite?.location && diveSite?.name) {
       return diveSite.country + ' - ' + diveSite.location + ' - ' + diveSite.name;
-    } else if (diveSite && diveSite.country && diveSite.location) {
+    } else if (diveSite?.country && diveSite?.location) {
       return diveSite.country + ' - ' + diveSite.location;
-    } else if (diveSite && diveSite.country) {
+    } else if (diveSite?.country && diveSite?.name) {
+      return diveSite.country + ' - ' + diveSite.name;
+    } else if (diveSite?.name) {
+      return diveSite.name;
+    } else if (diveSite?.country) {
       return diveSite.country;
     }
     return '-';
