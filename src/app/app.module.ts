@@ -48,8 +48,10 @@ import { DiveCheckComponent } from './components/upload-stepper/dive-check/dive-
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChangePasswordComponent } from './components/profile/change-password/change-password.component'
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import {MatDialogModule} from '@angular/material/dialog'; 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditDiveComponent } from './components/dive-course/edit-dive/edit-dive.component';
+import { DeleteDiveDialogComponent } from './components/dive-course/delete-dive-dialog/delete-dive-dialog.component';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DiveDetailsComponent } from './components/dive-course/dive-details/dive-details.component';
@@ -74,6 +76,7 @@ import { FilterComponent } from './components/dive-overview/filter/filter.compon
     ProfileComponent,
     ChangePasswordComponent,
     EditDiveComponent,
+    DeleteDiveDialogComponent,
     DiveDetailsComponent,
     FilterComponent,
   ],
@@ -100,6 +103,7 @@ import { FilterComponent } from './components/dive-overview/filter/filter.compon
     MatStepperModule,
     MatProgressBarModule,
     MatBottomSheetModule,
+    MatDialogModule,
     MatPaginatorModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),

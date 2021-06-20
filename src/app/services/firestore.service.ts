@@ -75,5 +75,21 @@ export class FirestoreService {
     }
   }
 
+  async deleteDive(userId: string, diveId: string) {
+    const userIdRef = this.angularFirestore.collection('users').doc(userId).ref;
+    const batch = this.angularFirestore.firestore.batch();
+    const decrement = firebase.firestore.FieldValue.increment(-1);
+    batch.set(userIdRef.collection('meta').doc('stats'), {'diveCount': decrement}, {merge: true});
+    batch.delete(userIdRef.collection('diveShort').doc(diveId));
+    batch.delete(userIdRef.collection('diveDetails').doc(diveId));
+    try {
+      await batch.commit();
+      this.notificationService.openSnackBar('Successfully deleted dive')
+    } catch (err) {
+      console.error(err);
+      this.notificationService.openSnackBar('An error occured: ' + err);
+    }
+  }
+
 }
 

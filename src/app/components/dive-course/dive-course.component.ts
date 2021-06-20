@@ -9,11 +9,13 @@ import {
   AuthService
 } from 'src/app/services/auth.service';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Dive, DiveSite } from 'src/app/services/dive';
 import { DocumentSnapshot } from '@angular/fire/firestore';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditDiveComponent } from './edit-dive/edit-dive.component';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDiveDialogComponent } from './delete-dive-dialog/delete-dive-dialog.component';
 
 @Component({
   selector: 'app-dive-course',
@@ -38,7 +40,9 @@ export class DiveCourseComponent implements OnInit {
   constructor(private firestore: FirestoreService,
     private auth: AuthService,
     private route: ActivatedRoute,
-    private _bottomSheet: MatBottomSheet) { }
+    private _bottomSheet: MatBottomSheet,
+    private dialog: MatDialog,
+    private router: Router) { }
 
   ngOnInit() {
     this.diveId = this.route.snapshot.paramMap.get('id');
@@ -74,6 +78,16 @@ export class DiveCourseComponent implements OnInit {
 
   openEditDiveSheet(): void {
     this._bottomSheet.open(EditDiveComponent, { data: { diveSite: this.divesite, id: this.diveId } });
+  }
+
+  deleteDiveDialog(): void {
+    const dialogRef = this.dialog.open(DeleteDiveDialogComponent);
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result) {
+        this.firestore.deleteDive(this.auth.user.uid, this.diveId);
+        this.router.navigate(['/']);
+      }
+    });
   }
 
   waterTemperature(waypoints): number[] {

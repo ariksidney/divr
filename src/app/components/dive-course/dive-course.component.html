@@ -7,8 +7,11 @@
             {{ getTitle() }}
           </div>
           <div class="dive-title__button">
-            <button mat-raised-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
+            <button mat-icon-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
               <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteDiveDialog()" type="button" color="warn" aria-label="Delete dive">
+              <mat-icon>delete</mat-icon>
             </button>
           </div>
         </mat-card-content>

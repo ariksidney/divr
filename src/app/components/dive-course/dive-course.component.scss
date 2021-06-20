@@ -11,7 +11,10 @@
   column-gap: 20px;
 
   &__button {
-    text-align: end;
+    display: flex;
+    justify-content: flex-end;
+    column-gap: 10px;
+    flex-flow: wrap;
   }
 }
 
