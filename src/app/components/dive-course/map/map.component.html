@@ -2,9 +2,11 @@
 </ng-container>
 
 <ng-template #showMap>
-  <agm-map [latitude]="latitude" [longitude]="longitude" [disableDefaultUI]="true" [zoom]="10" >
-    <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
-  </agm-map>
+  <div *ngIf="apiLoaded | async">
+    <google-map height="250px" width="100%" [center]="center" [zoom]="11" [options]="options">
+      <map-marker [position]="center"></map-marker>
+    </google-map>
+  </div>
 </ng-template>
 
 <ng-template #showError>

@@ -12,7 +12,7 @@ import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
@@ -40,7 +40,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MapComponent } from './components/dive-course/map/map.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { AgmCoreModule } from '@agm/core';
 import { UploadComponent } from './components/upload-stepper/upload/upload.component';
 import { FileDropDirective } from './directives/file-drop.directive';
 import { UploadStepperComponent } from './components/upload-stepper/upload-stepper.component';
@@ -56,7 +55,7 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DiveDetailsComponent } from './components/dive-course/dive-details/dive-details.component';
 import { FilterComponent } from './components/dive-overview/filter/filter.component';
-
+import {GoogleMapsModule} from '@angular/google-maps';
 
 @NgModule({
   declarations: [
@@ -106,11 +105,10 @@ import { FilterComponent } from './components/dive-overview/filter/filter.compon
     MatDialogModule,
     MatPaginatorModule,
     HttpClientModule,
+    HttpClientJsonpModule,
+    GoogleMapsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
-    AgmCoreModule.forRoot({
-      apiKey: environment.mapKey
-    }),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireFunctionsModule,
