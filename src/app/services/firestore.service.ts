@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, Query } from '@angular/fire/firestore';
-import firebase from 'firebase/app';
+import { AngularFirestore, Query } from '@angular/fire/compat/firestore';
+import firebase from 'firebase/compat/app';
 import { v1 as uuid } from 'uuid';
 import { Dive, DiveSite } from './dive';
 import { NotifiactionsService } from './notifiactions.service';

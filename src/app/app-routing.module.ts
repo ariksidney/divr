@@ -6,7 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DiveCourseComponent } from './components/dive-course/dive-course.component';
 import { UploadStepperComponent } from './components/upload-stepper/upload-stepper.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { redirectUnauthorizedTo, AngularFireAuthGuard } from '@angular/fire/auth-guard';
+import { redirectUnauthorizedTo, AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 

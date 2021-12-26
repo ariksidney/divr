@@ -11,7 +11,7 @@ import {
 
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dive, DiveSite } from 'src/app/services/dive';
-import { DocumentSnapshot } from '@angular/fire/firestore';
+import { DocumentSnapshot } from '@angular/fire/compat/firestore';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditDiveComponent } from './edit-dive/edit-dive.component';
 import { MatDialog } from '@angular/material/dialog';
