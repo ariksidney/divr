@@ -8,8 +8,6 @@ export class FileDropDirective {
   @Output() filesDropped =  new EventEmitter<FileList>();
   @Output() filesHovered =  new EventEmitter<boolean>();
 
-  constructor() { }
-
   @HostListener('drop', ['$event'])
     onDrop($event) {
       $event.preventDefault();

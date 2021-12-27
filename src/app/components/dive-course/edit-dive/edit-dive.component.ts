@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatBottomSheetRef, MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { FormGroup, FormControl } from '@angular/forms';
-import { DiveSite } from 'src/app/services/dive';
 import { AuthService } from 'src/app/services/auth.service';
 import { FirestoreService } from 'src/app/services/firestore.service';
 
@@ -13,7 +12,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class EditDiveComponent implements OnInit {
 
   constructor(private _bottomSheetRef: MatBottomSheetRef<EditDiveComponent>,
-    @Inject(MAT_BOTTOM_SHEET_DATA) private data: any,
+    @Inject(MAT_BOTTOM_SHEET_DATA) private data,
     private authService: AuthService,
     private firestore: FirestoreService) { }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -19,8 +19,8 @@ export class ChangePasswordComponent {
     }, {validators: this.checkPasswords});
 
     checkPasswords(group: FormGroup) {         
-        let pass = group.controls.newPassword.value;
-        let confirmPass = group.controls.repeatNewPassword.value;
+        const pass = group.controls.newPassword.value;
+        const confirmPass = group.controls.repeatNewPassword.value;
 
         return pass === confirmPass ? null : { notSame: true }
     }

@@ -21,9 +21,9 @@ export class FirestoreService {
           let query : Query = ref;
           query = query.orderBy('startTime', 'desc')
           if (filter) {
-            if (filter.country) { query = query.where('diveSite.country', '==', filter.country) };
-            if (filter.fromDate) { query = query.where('startTime', '>=', filter.fromDate) };
-            if (filter.toDate) { query = query.where('startTime', '<=', filter.toDate) };
+            if (filter.country) { query = query.where('diveSite.country', '==', filter.country) }
+            if (filter.fromDate) { query = query.where('startTime', '>=', filter.fromDate) }
+            if (filter.toDate) { query = query.where('startTime', '<=', filter.toDate) }
           }
           if (!dives) {
             query = query.limit(pageSize)

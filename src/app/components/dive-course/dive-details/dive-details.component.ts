@@ -1,18 +1,13 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dive-details',
   templateUrl: './dive-details.component.html',
   styleUrls: ['./dive-details.component.scss']
 })
-export class DiveDetailsComponent implements OnInit {
+export class DiveDetailsComponent {
 
   @Input()
-  details: any[];
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  details: {title: string, value: string}[];
 
 }

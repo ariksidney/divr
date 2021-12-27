@@ -1,6 +1,6 @@
 
 export interface Filter {
-    country?: String;
+    country?: string;
     toDate?: Date;
     fromDate?: Date;
 }

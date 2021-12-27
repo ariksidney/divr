@@ -21,7 +21,7 @@ export class DiveCheckComponent implements OnInit {
     this.diveFileService.delete(index);
   }
 
-  private toDuration(durationInSeconds: number): String {
+  private toDuration(durationInSeconds: number): string {
     const date = new Date(null);
     date.setSeconds(durationInSeconds);
     return date.toISOString().substr(11, 8);

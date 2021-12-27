@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FirestoreService } from 'src/app/services/firestore.service';
 import { DiveFileService } from 'src/app/services/dive-file.service';
 import { AuthService } from 'src/app/services/auth.service';
 

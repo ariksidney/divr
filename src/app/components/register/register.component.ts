@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 
@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   registerForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -15,9 +15,6 @@ export class RegisterComponent implements OnInit {
   });
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-  }
 
   register() {
     this.authService.register(this.registerForm.value.email, this.registerForm.value.password);

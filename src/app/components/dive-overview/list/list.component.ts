@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DiveSite } from 'src/app/services/dive';
 

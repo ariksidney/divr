@@ -1,4 +1,5 @@
-import { Component, OnInit, NgZone, OnDestroy, Input, AfterViewInit } from '@angular/core';
+import { Component, NgZone, OnDestroy, Input, AfterViewInit } from '@angular/core';
+import * as am4charts from '@amcharts/amcharts4/charts';
 
 @Component({
   selector: 'app-dive-chart',
@@ -7,7 +8,7 @@ import { Component, OnInit, NgZone, OnDestroy, Input, AfterViewInit } from '@ang
 })
 export class DiveChartComponent implements AfterViewInit, OnDestroy {
 
-  private chart: any;
+  private chart: am4charts.XYChart;
 
   @Input()
   private data: [];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -6,11 +6,9 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit() { }
 
   displayNavigation() {
     return this.authService.isLoggedIn;

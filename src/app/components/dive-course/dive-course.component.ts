@@ -27,7 +27,7 @@ export class DiveCourseComponent implements OnInit {
   diveId: string;
 
   data = [];
-  greatestDepth: Number;
+  greatestDepth: number;
   duration;
   startTime;
   waterTemp: string[];
@@ -67,7 +67,7 @@ export class DiveCourseComponent implements OnInit {
     });
   }
 
-  get details() {
+  get details(): {title: string, value: string}[] {
       return [
         { title: 'Max Depth', value: this.greatestDepth.toString() + 'm' },
         { title: 'Duration', value: this.duration },
@@ -105,7 +105,7 @@ export class DiveCourseComponent implements OnInit {
       return (tempInKelvin - 273.15).toFixed(2);
   }
 
-  private toDuration(durationInSeconds: number): String {
+  private toDuration(durationInSeconds: number): string {
     const date = new Date(null);
     date.setSeconds(durationInSeconds);
     return date.toISOString().substr(11, 8);
