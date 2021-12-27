@@ -1,0 +1,7 @@
+node_modules
+dist
+assets
+environments
+test-data
+.github
+.firebase
