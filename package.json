@@ -9,7 +9,8 @@
     "deploy": "firebase deploy --only hosting",
     "build:stats": "ng build --stats-json",
     "analyze": "webpack-bundle-analyzer dist/divr/stats.json",
-    "lint": "eslint \"**/*.{ts,tsx}\" --fix"
+    "lint": "eslint \"**/*.{ts,tsx}\" --fix",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
