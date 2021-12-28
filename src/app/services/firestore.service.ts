@@ -91,5 +91,24 @@ export class FirestoreService {
     }
   }
 
+  async setDiveShareState(userId: string, diveId: string, isPublic: boolean) {
+    const userIdRef = this.angularFirestore.collection('users').doc(userId).ref;
+    try {
+      await this.angularFirestore.firestore.runTransaction(async t => {
+        const diveDetailsRef = userIdRef.collection('diveDetails').doc(diveId);
+        t.update(diveDetailsRef, { 'public': isPublic })
+      })
+      if (isPublic) {
+        this.notificationService.openSnackBar('Successfully shared dive')
+      } else {
+        this.notificationService.openSnackBar('Successfully unshared dive')
+      }
+    } catch (err) {
+      console.error(err);
+      this.notificationService.openSnackBar('An error occured: ' + err);
+    }
+
+  }
+
 }
 

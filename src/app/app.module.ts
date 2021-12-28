@@ -51,11 +51,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditDiveComponent } from './components/dive-course/edit-dive/edit-dive.component';
 import { DeleteDiveDialogComponent } from './components/dive-course/delete-dive-dialog/delete-dive-dialog.component';
+import { ShareDiveDialogComponent } from './components/dive-course/share-dive-dialog/share-dive-dialog.component';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { DiveDetailsComponent } from './components/dive-course/dive-details/dive-details.component';
 import { FilterComponent } from './components/dive-overview/filter/filter.component';
 import {GoogleMapsModule} from '@angular/google-maps';
+import {ClipboardModule} from '@angular/cdk/clipboard'; 
+import {MatTooltipModule} from '@angular/material/tooltip'; 
 
 @NgModule({
     declarations: [
@@ -76,6 +79,7 @@ import {GoogleMapsModule} from '@angular/google-maps';
         ChangePasswordComponent,
         EditDiveComponent,
         DeleteDiveDialogComponent,
+        ShareDiveDialogComponent,
         DiveDetailsComponent,
         FilterComponent,
     ],
@@ -107,6 +111,8 @@ import {GoogleMapsModule} from '@angular/google-maps';
         HttpClientModule,
         HttpClientJsonpModule,
         GoogleMapsModule,
+        ClipboardModule,
+        MatTooltipModule,
         AngularFireModule.initializeApp(environment.firebase),
         AngularFirestoreModule.enablePersistence(),
         AngularFireAuthModule,

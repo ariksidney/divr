@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Share Dive?</h2>
+<mat-dialog-content class="mat-typography">
+  <div>
+    <p>Copy the following URL:</p>
+    <input disabled matInput class="url" value="{{ publicDiveUrl }}">
+    <button mat-icon-button type="button" [cdkCopyToClipboard]="publicDiveUrl" aria-label="Copy share link">
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="share()">Share</button>
+  <button mat-button [mat-dialog-close]="true" (click)="unshare()">Unshare</button>
+</mat-dialog-actions>

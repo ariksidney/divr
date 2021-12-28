@@ -1,4 +1,4 @@
-<div *ngIf="loaded; else notLoaded">
+<div *ngIf="loaded">
   <div class="grid">
     <div class="title">
       <mat-card class="title-card">
@@ -6,13 +6,23 @@
           <div class="dive-title__text">
             {{ getTitle() }}
           </div>
-          <div class="dive-title__button">
-            <button mat-icon-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
-              <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button (click)="deleteDiveDialog()" type="button" color="warn" aria-label="Delete dive">
-              <mat-icon>delete</mat-icon>
-            </button>
+          <div *ngIf="this.auth.isLoggedIn">
+            <div class="dive-title__button">
+              <div *ngIf="isDivePublic" class="text_public">
+                <button mat-icon-button disabled type="button" aria-label="Is dive shared">
+                  <mat-icon matTooltip="This dive is public" matTooltipHideDelay="2000">visibility</mat-icon>
+                 </button>
+              </div>
+              <button mat-icon-button (click)="openShareDiveDialog()" type="button" aria-label="Share dive">
+                <mat-icon>share</mat-icon>
+              </button>
+              <button mat-icon-button (click)="openEditDiveSheet()" type="button" color="primary" aria-label="Edit dive">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteDiveDialog()" type="button" color="warn" aria-label="Delete dive">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </div>
         </mat-card-content>
       </mat-card>
@@ -59,6 +69,6 @@
   </div>
 </div>
 
-<ng-template #notLoaded>
+<div *ngIf="!loaded">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
-</ng-template>
+</div>

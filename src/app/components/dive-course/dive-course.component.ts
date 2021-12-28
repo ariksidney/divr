@@ -16,6 +16,8 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { EditDiveComponent } from './edit-dive/edit-dive.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDiveDialogComponent } from './delete-dive-dialog/delete-dive-dialog.component';
+import { ShareDiveDialogComponent } from './share-dive-dialog/share-dive-dialog.component';
+import { NotifiactionsService } from 'src/app/services/notifiactions.service';
 
 @Component({
   selector: 'app-dive-course',
@@ -28,12 +30,13 @@ export class DiveCourseComponent implements OnInit {
 
   data = [];
   greatestDepth: number;
-  duration;
-  startTime;
+  duration: string;
+  startTime: Date;
   waterTemp: string[];
   divesite: DiveSite;
+  isDivePublic = false;
 
-  panelOpenState;
+  panelOpenState: boolean;
 
   loaded = false;
 
@@ -42,14 +45,17 @@ export class DiveCourseComponent implements OnInit {
     private route: ActivatedRoute,
     private _bottomSheet: MatBottomSheet,
     private dialog: MatDialog,
-    private router: Router) { }
+    private router: Router,
+    private notificationService: NotifiactionsService) { }
 
   ngOnInit() {
     this.diveId = this.route.snapshot.paramMap.get('id');
-    this.firestore.getDetailedDive(this.auth.uid, this.diveId).subscribe((diveSnapshot: DocumentSnapshot<Dive>) => {
+    const userId = this.route.snapshot.paramMap.get('user') || this.auth.uid;
+    this.firestore.getDetailedDive(userId, this.diveId).subscribe((diveSnapshot: DocumentSnapshot<Dive>) => {
       if (diveSnapshot.exists && diveSnapshot.data) {
         const dive = diveSnapshot.data();
         const waypoints = dive.waypoints;
+        this.isDivePublic = dive.public;
         this.greatestDepth = dive.details.greatestDepth;
         this.startTime = dive.details.startTime;
         this.duration = this.toDuration(dive.details.duration);
@@ -64,6 +70,10 @@ export class DiveCourseComponent implements OnInit {
         });
       }
       this.loaded = true;
+    },
+    error => {
+      this.notificationService.openSnackBar(error);
+      this.router.navigate(['/']);
     });
   }
 
@@ -71,13 +81,29 @@ export class DiveCourseComponent implements OnInit {
       return [
         { title: 'Max Depth', value: this.greatestDepth.toString() + 'm' },
         { title: 'Duration', value: this.duration },
-        { title: 'Start Time', value: new Date(this.startTime.toDate()).toLocaleString()},
+        { title: 'Start Time', value: new Date(this.startTime).toLocaleString()},
         { title: 'Water Temperature', value: `\u{2191} ${this.waterTemp[0]}° \u{2193} ${this.waterTemp[1]}°` }
       ]
   }
 
   openEditDiveSheet(): void {
     this._bottomSheet.open(EditDiveComponent, { data: { diveSite: this.divesite, id: this.diveId } });
+  }
+
+  openShareDiveDialog(): void {
+    const dialogRef = this.dialog.open(ShareDiveDialogComponent, {
+      data: {uid: this.auth.uid}
+    });
+    dialogRef.afterClosed().subscribe(async result => {
+      if (result) {
+        this.firestore.setDiveShareState(this.auth.user.uid, this.diveId, result.share);
+        this.isDivePublic = result.share;
+      }
+    });
+  }
+
+  changeSharedState($event) {
+      this.firestore.setDiveShareState(this.auth.user.uid, this.diveId, $event.checked);
   }
 
   deleteDiveDialog(): void {

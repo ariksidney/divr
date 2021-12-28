@@ -1,6 +1,7 @@
 export interface Dive {
     details: DiveDetails;
     waypoints: Waypoint[];
+    public: boolean;
 }
 
 export interface DiveDetails {

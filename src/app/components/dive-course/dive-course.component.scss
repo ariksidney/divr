@@ -44,6 +44,13 @@
     "map";
 }
 
+.text_public {
+  align-content: center;
+  display: grid;
+  font-size: 16px;
+  color: greenyellow;
+}
+
 @media (min-width: 700px) {
   .grid {
     grid-template-columns: 1fr 1fr;
